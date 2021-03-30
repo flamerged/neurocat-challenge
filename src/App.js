@@ -4,6 +4,8 @@ import { v4 as uuid } from "uuid";
 import randomWords from "random-words";
 import { useState, useRef } from "react";
 
+import ItemList from "./components/ItemList";
+
 const App = () => {
   const [list, setList] = useState([]);
   const [search, setSearch] = useState([]);
@@ -47,14 +49,8 @@ const App = () => {
         onChange={searchItems}
       ></input>
       <button onClick={createItem}>add item</button>
-      {isSearching &&
-        search.map((item) => {
-          return <li key={item.id}>{item.name}</li>;
-        })}
-      {!isSearching &&
-        list.map((item) => {
-          return <li key={item.id}>{item.name}</li>;
-        })}
+      {isSearching && <ItemList items={search} />}
+      {!isSearching && <ItemList items={list} />}
     </div>
   );
 };
