@@ -3,6 +3,7 @@ import lunr from "lunr";
 import { v4 as uuid } from "uuid";
 import randomWords from "random-words";
 import { useState, useRef } from "react";
+import { RiAddLine } from "react-icons/ri";
 
 import ItemList from "./components/ItemList";
 
@@ -42,13 +43,17 @@ const App = () => {
   };
 
   return (
-    <div className="App">
-      <input
-        ref={searchInput}
-        placeholder="search"
-        onChange={searchItems}
-      ></input>
-      <button onClick={createItem}>add item</button>
+    <div className="app">
+      <div className="app-control">
+        <input
+          ref={searchInput}
+          placeholder="Search"
+          onChange={searchItems}
+        ></input>
+        <button onClick={createItem}>
+          <RiAddLine />
+        </button>
+      </div>
       {isSearching && <ItemList items={search} />}
       {!isSearching && <ItemList items={list} />}
     </div>
