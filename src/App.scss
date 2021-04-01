@@ -16,6 +16,10 @@
       &:focus {
         outline: none;
       }
+
+      &:active {
+        background-color: #c75c80;
+      }
     }
 
     button {
@@ -31,6 +35,28 @@
         fill: #171820;
         padding: 4px;
         border-radius: 8px;
+      }
+    }
+  }
+
+  .app-end {
+    display: flex;
+    justify-content: center;
+
+    .app-end-button {
+      background-color: #fc75a1;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-size: 1.5rem;
+      color: #171820;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:active {
+        background-color: #c75c80;
       }
     }
   }

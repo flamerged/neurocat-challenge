@@ -42,6 +42,11 @@ const App = () => {
     }
   };
 
+  const removeItem = (id) => {
+    const newList = list.filter((item) => item.id !== id);
+    setList(newList);
+  };
+
   return (
     <div className="app">
       <div className="app-control">
@@ -55,7 +60,14 @@ const App = () => {
         </button>
       </div>
       {isSearching && <ItemList items={search} />}
-      {!isSearching && <ItemList items={list} />}
+      {!isSearching && <ItemList items={list} removeItem={removeItem} />}
+      {!isSearching && list.length !== 0 && (
+        <div className="app-end">
+          <button onClick={() => setList([])} className="app-end-button">
+            Clear List
+          </button>
+        </div>
+      )}
     </div>
   );
 };
